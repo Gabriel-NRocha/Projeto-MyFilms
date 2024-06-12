@@ -1,0 +1,143 @@
+:root {
+  --primary-color: #0d1b2a;
+  --light-primary: #1b263b;
+  --lighthest-color: #e0e1dd;
+  --secundary-color: #778da9;
+  --light-secondary: #415a77;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100dvh;
+}
+/* Cabeçalho */
+header {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  background-color: var(--light-primary);
+  color: var(--lighthest-color);
+  align-items: center;
+  padding: 1.5rem 1rem;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header > h2 > i {
+  margin-right: 0.5rem;
+}
+
+#h2-header {
+  color: white;
+}
+
+.input-wrapped {
+  width: 50%;
+}
+
+.movie-name-wrapped {
+  width: 20rem;
+  display: flex;
+  flex-wrap: nowrap;
+  transform: translateX(2.5rem);
+  align-items: center;
+}
+
+.movie-year-wrapped {
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 9rem;
+  align-items: center;
+
+  & input {
+    max-width: 5rem;
+  }
+}
+
+#search-button {
+  background: var(--light-primary);
+  border: 1px solid var(--light-secondary);
+  color: white;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+#search-button:focus,
+#search-button:hover {
+  background-color: var(--light-secondary);
+}
+
+.movie-name-wrapped > input,
+.movie-year-wrapped > input {
+  margin-left: 0.5rem;
+  border-radius: 7px;
+  padding: 0.3rem 0.2rem;
+}
+
+.search {
+  display: flex;
+  transform: translateX(-4rem);
+}
+
+.movie-name-wrapped > label,
+.movie-year-wrapped > label {
+  font-weight: bold;
+}
+
+/* Main */
+h2 {
+  color: #1b263b;
+}
+main {
+  text-align: center;
+  background-color: var(--lighthest-color);
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+#movie-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+  margin-top: 1rem;
+  justify-content: 1rem;
+}
+
+#movie-list article {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  transition: all 2s;
+
+  & img {
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.remove-button {
+  color: #724e46;
+  background-color: #c3c5bf;
+  cursor: pointer;
+  border: 2px solid #724e46;
+  padding: 0.25rem 0;
+  width: 70%;
+  border-radius: 0.8rem;
+  margin: 1rem;
+  box-shadow: 3px 3px 2px rgba(2, 2, 2, 0.932);
+  &:hover {
+    background-color: #b9958d;
+    color: var(--lighthest-color);
+  }
+}
