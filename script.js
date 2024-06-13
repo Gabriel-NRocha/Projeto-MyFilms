@@ -22,6 +22,7 @@ function addCurrentToList() {
   }
   addToList(currentMovie);
   upDateUi(currentMovie);
+  uptadeLocalStorage();
   closeModal();
 }
 
@@ -55,7 +56,9 @@ function createModal1(data) {
 }
 background.addEventListener("click", backgroundClickHandler);
 
-let movieList = [];
+// let movieList = [];
+
+let movieList = JSON.parse(localStorage.getItem("movieList")) ?? [];
 
 async function searchButtonClickHandler() {
   try {
@@ -118,6 +121,15 @@ function upDateUi(movieObject) {
 function removeFilmFromList(id) {
   movieList = movieList.filter((movie) => movie.imdbID !== id);
   document.getElementById(`movie-card-${id}`).remove();
+  uptadeLocalStorage();
+}
+
+function uptadeLocalStorage() {
+  localStorage.setItem("movieList", JSON.stringify(movieList));
+}
+
+for (const movieInfo of movieList) {
+  upDateUi(movieInfo);
 }
 
 botaoSearch.addEventListener("click", searchButtonClickHandler);
